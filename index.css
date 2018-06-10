@@ -44,6 +44,7 @@ body {
 .toad:hover {
   transform: scale(2.0);
   transition: all 3.0s cubic-bezier(.25,.8,.25,1);
+  box-shadow: none;
 }
 
 .toad:after {
