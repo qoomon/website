@@ -2,8 +2,43 @@
   <head>
     <title>Ponies</title>
     <link rel='shortcut icon' href='/favicon.ico'/>
-    <script type="text/javascript" src="https://panzi.github.io/Browser-Ponies/basecfg.js" id="browser-ponies-config"></script><script type="text/javascript" src="https://panzi.github.io/Browser-Ponies/browserponies.js" id="browser-ponies-script"></script><script type="text/javascript">/* <![CDATA[ */ (function (cfg) {BrowserPonies.setBaseUrl(cfg.baseurl);BrowserPonies.loadConfig(BrowserPoniesBaseConfig);BrowserPonies.loadConfig(cfg);})({"baseurl":"https://panzi.github.io/Browser-Ponies/","fadeDuration":500,"volume":0.2,"fps":25,"speed":3,"audioEnabled":true,"showFps":false,"showLoadProgress":false,"speakProbability":0.64,"spawn":{},"spawnRandom":16,"autostart":true}); /* ]]> */</script>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <script type="text/javascript" src="https://panzi.github.io/Browser-Ponies/basecfg.js" id="browser-ponies-config"></script>
+    <script type="text/javascript" src="https://panzi.github.io/Browser-Ponies/browserponies.js" id="browser-ponies-script"></script>
+    <script type="text/javascript">/* <![CDATA[ */ 
+      (function (cfg) {
+        BrowserPonies.setBaseUrl(cfg.baseurl);
+        BrowserPonies.loadConfig(BrowserPoniesBaseConfig);
+        BrowserPonies.loadConfig(cfg);})({
+          "baseurl":"https://panzi.github.io/Browser-Ponies/",
+          "fadeDuration":500,
+          "volume":0.2,
+          "fps":25,
+          "speed":3,
+          "audioEnabled":true,
+          "showFps":false,
+          "showLoadProgress":false,
+          "speakProbability":0.16,
+          "spawn":{},
+          "spawnRandom":16,
+          "autostart":true
+        }); 
+    /* ]]> */</script>
+    <style>
+      body {
+        background: url(tree_field.jpg);
+      }
+      div[style] {
+        font-size: 10px !important;
+        font-family: 'Press Start 2P' !important;
+        background: none !important;
+        box-shadow: none !important;
+        color: #ffffffde !important;
+        text-shadow: 2px 2px #5f5f5f4f !important;
+        z-index: 0 !important;
+    }
+    </style>
   </head>
-  <body style="background: url(tree_field.jpg);">
+  <body>
   </body>
 </html>
