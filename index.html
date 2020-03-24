@@ -2,41 +2,175 @@
   <head>
     <title>qoomon</title>
     <link rel='shortcut icon' href='/favicon.ico'/>
+    <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+    <script>
+      window.addEventListener("load", function(){
+        document.querySelectorAll('.button').forEach(element => {
+          element.addEventListener('mouseenter', function (e) {
+            this.classList.add('button-press') 
+            this.timestamp = Date.now()          
+          })
+          element.addEventListener('mouseleave', function () {
+            setTimeout(() => {
+              this.classList.remove('button-press')
+            }, this.timestamp - Date.now() + 500);
+          })
+        })
+      })
+    </script>
   </head>
-  <body>
+  <body class="preload" onload="document.body.classList.remove('preload');">
     <!-- <div style="display: none;" class="g-recaptcha" data-sitekey="6LdmjAoUAAAAAKNIGsW-ZMEZq2n0a1HXEYIhRf98"></div> -->
     <div class="button-box">
-      <a class="button tooltip" data-title="Blogspot" href="https://qoomon.blogspot.com"><img src="./data/icons/blogger.png" /></a>
-      <a class="button tooltip" data-title="Twitter" href="https://twitter.com/qoomon1"><img src="./data/icons/twitter.png" /></a>
-      <a class="button tooltip" data-title="Xing" href="https://www.xing.com/profile/Bengt_Brodersen"><img src="./data/icons/xing.png" /></a>
-      <a class="button tooltip" data-title="LinkedIn" href="https://www.linkedin.com/in/bengtbrodersen"><img src="./data/icons/linkedin.png" /></a>
-      <a class="button tooltip" data-title="Whereby" href="https://whereby.com/qoomon"><img src="./data/icons/whereby.png" /></a>
+      <div class="button">
+        <a href="https://qoomon.blogspot.com">
+          <img src="./data/icons/blogger.png">
+          <span>Blogspot</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://twitter.com/qoomon1">
+          <img src="./data/icons/twitter.png">
+          <span>Twitter</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://www.xing.com/profile/Bengt_Brodersen">
+          <img src="./data/icons/xing.png">
+          <span>Xing</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://www.linkedin.com/in/bengtbrodersen">
+          <img src="./data/icons/linkedin.png">
+          <span>LinkedIn</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://whereby.com/qoomon">
+          <img src="./data/icons/whereby.png">
+          <span>Whereby</span>
+        </a>
+      </div>
     </div>
     <div class="button-box">
-      <a class="button tooltip" data-title="GitHub" href="https://github.com/qoomon"><img src="./data/icons/github.png" /></a>
-      <a class="button tooltip" data-title="Stack Overflow" href="https://stackoverflow.com/users/5376635/qoomon"><img src="./data/icons/stackoverflow.png" /></a>
-      <a class="button tooltip" data-title="DockerHub" href="https://hub.docker.com/u/qoomon/"><img src="./data/icons/dockerhub.png" /></a>
+      <div class="button">
+        <a href="https://github.com/qoomon">
+          <img src="./data/icons/github.png">
+          <span>GitHub</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://stackoverflow.com/users/5376635/qoomon">
+          <img src="./data/icons/stackoverflow.png">
+          <span>Stack Overflow</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://hub.docker.com/u/qoomon/">
+          <img src="./data/icons/dockerhub.png">
+          <span>DockerHub</span>
+        </a>
+      </div>
     </div>
     <div class="button-box">
-      <a class="button tooltip" data-title="Scrum Slides" href="https://docs.google.com/presentation/d/1nsLF8hM2G5E186vObiP0v0SeJIUxzhmKgzPkEsvaK9g" ><img src="./data/icons/scrum-slides.png" /></a>
-      <a class="button tooltip" data-title="Issue Card Printer" href="https://github.com/qoomon/Jira-Issue-Card-Printer" ><img src="./data/icons/issue-printer.png" /></a>
-      <a class="button tooltip" data-title="Banking SWIFT Messages" href="https://github.com/qoomon/banking-swift-messages-java" ><img src="./data/icons/banking-swift-messages.png" /></a>
-      <a class="button tooltip" data-title="OTP Authenticator" href="https://qoomon.github.io/otp-authenticator-webapp"><img src="./data/icons/otp-authenticator.png" /></a>
-      <a class="button tooltip" data-title="Time Timer" href="https://qoomon.github.io/time-timer-webapp"><img src="./data/icons/time_timer.png" /></a>
-      <a class="button tooltip" data-title="Zsh Config" href="https://github.com/qoomon/zsh-config"><img src="./data/icons/zsh-config.png" /></a>
-      <a class="button tooltip" data-title="Maven/Gradle Git Versioning" href="https://github.com/qoomon/maven-git-versioning-extension"><img src="./data/icons/maven-git-versioning.png" /></a>
-      <a class="button tooltip" data-title="Countdown" href="https://qoomon.github.io/countdown-webapp"><img src="./data/icons/countdown.png" /></a>
-      <a class="button tooltip" data-title="Git Conventional Commits" href="https://github.com/qoomon/git-conventional-commits"><img src="./data/icons/conventional-commit-messages.png" /></a>
-      <a class="button tooltip" data-title="AWS CLI Configure" href="https://github.com/qoomon/aws-configure"><img src="./data/icons/aws_profile.png" /></a>
-      <a class="button tooltip" data-title="AWS SSM - SSH Proxy Command" href="https://gist.github.com/qoomon/fcf2c85194c55aee34b78ddcaa9e83a1"><img src="./data/icons/aws_ssm_ssh_proxy_command.png" /></a>
-      <a class="button tooltip" data-title="AWS S3 Browser" href="https://github.com/qoomon/aws-s3-bucket-browser"><img src="./data/icons/aws_s3_browser.png" /></a>
-      <a class="button tooltip" data-title="Docker Host" href="https://github.com/qoomon/docker-host"><img src="./data/icons/docker-host.png" /></a>
-      <a class="button tooltip" data-title="Have I been pwned!" href="https://gist.github.com/qoomon/17ac72a2c90bb85b89c883ce7dac5724"><img src="./data/icons/hibp.png" /></a>
-      <a class="button tooltip" data-title="Gmail RSS Feeds" href="https://github.com/qoomon/gmail-rss-feed"><img src="./data/icons/gmail-rss-feed.png" /></a>
+      <div class="button">
+        <a href="https://docs.google.com/presentation/d/1nsLF8hM2G5E186vObiP0v0SeJIUxzhmKgzPkEsvaK9g" >
+          <img src="./data/icons/scrum-slides.png">
+          <span>Scrum Slides</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://github.com/qoomon/Jira-Issue-Card-Printer" >
+          <img src="./data/icons/issue-printer.png">
+          <span>Issue Card Printer</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://github.com/qoomon/banking-swift-messages-java" >
+          <img src="./data/icons/banking-swift-messages.png">
+          <span>Banking SWIFT Messages</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://qoomon.github.io/otp-authenticator-webapp">
+          <img src="./data/icons/otp-authenticator.png">
+          <span>OTP Authenticator</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://qoomon.github.io/time-timer-webapp">
+          <img src="./data/icons/time_timer.png">
+          <span>Time Timer</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://github.com/qoomon/zsh-config">
+          <img src="./data/icons/zsh-config.png">
+          <span>Zsh Config</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://github.com/qoomon/maven-git-versioning-extension">
+          <img src="./data/icons/maven-git-versioning.png">
+          <span>Maven/Gradle Git Versioning</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://qoomon.github.io/countdown-webapp">
+          <img src="./data/icons/countdown.png">
+          <span>Countdown</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://github.com/qoomon/git-conventional-commits">
+          <img src="./data/icons/conventional-commit-messages.png">
+          <span>Git Conventional Commits</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://github.com/qoomon/aws-configure">
+          <img src="./data/icons/aws_profile.png">
+          <span>AWS CLI Configure</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://gist.github.com/qoomon/fcf2c85194c55aee34b78ddcaa9e83a1">
+          <img src="./data/icons/aws_ssm_ssh_proxy_command.png">
+          <span>AWS SSM - SSH Proxy Command</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://github.com/qoomon/aws-s3-bucket-browser">
+          <img src="./data/icons/aws_s3_browser.png">
+          <span>AWS S3 Browser</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://github.com/qoomon/docker-host">
+          <img src="./data/icons/docker-host.png">
+          <span>Docker Host</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://gist.github.com/qoomon/17ac72a2c90bb85b89c883ce7dac5724">
+          <img src="./data/icons/hibp.png">
+          <span>Have I been pwned!</span>
+        </a>
+      </div>
+      <div class="button">
+        <a href="https://github.com/qoomon/gmail-rss-feed">
+          <img src="./data/icons/gmail-rss-feed.png">
+          <span>Gmail RSS Feeds</span>
+        </a>
+      </div>
     </div>
-    <a class="button tooltip toad" data-title="I want to play a game!" href="https://www.cubeslam.com/qtwnvc"><img src="./data/icons/blinking_toad.gif" /></a>
-    <!-- <a class="button toad" title="I want to play a game!" href="http://slaim.io?sid=0&r=P_8484"><img src="./data/icons/blinking_toad.gif" /></a> -->
+    <div class="toad">
+      <a href="/ponies.html">
+        <img src="./data/icons/blinking_toad.gif">
+      </a>
+    </div>
   </body>
 </html>

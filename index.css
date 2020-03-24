@@ -1,106 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  padding: 64px 48px;
-  background: rgb(245,245,245,1);
-  background: linear-gradient(0deg, rgb(234, 234, 234) 0%, rgba(245,245,245,1) 100%);
-  text-align: center;
+  padding: 40px 48px;
+  background: rgb(234, 234, 234);
+  background: linear-gradient(0deg, rgb(224, 224, 224) 0%, rgb(240, 240, 240) 100%);
 }
 
 .button-box {
-  display: table;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 0 auto;
-  margin-bottom: 64px;
+  margin-bottom: 40px;
 }
 
 .button {
-  display: inline-block;
-  height: 96px;
-  width: 96px;
-  line-height: 96px;
-  padding: 12;
-  margin: 12;
+  display: flex;
+  position: relative;
+  height: 110px;
+  width: 110px;
+  padding: 12px;
+  margin: 12px;
+
+  justify-content: space-around;
+  align-items: center;
+  
+  overflow: hidden;
+  
+  border-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(255, 255, 255, 0.3);
+  
   border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  transition: all 1.0s cubic-bezier(.25,.8,.25,1);
+  border-style: solid;
+  border-width: 1px 0px 0px 1px;
+  box-shadow: 8px  8px 20px 0 rgba(113, 113, 113, 0.15), 
+             -8px -8px 20px 0 rgba(255, 255, 255, 0.6);
+             
+  transition: 2.0s ease;
 }
-
-.button:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}   
-
-.button > img {
-  width:  100%;
+.button-press {
+  transition: 0.5s ease;
+  
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: 0 0 0 0 transparent,
+              0 0 0 0 transparent,
+              inset  4px  4px 8px 0 rgba(0, 0, 0, 0.15),
+              inset -4px -4px 8px 0 rgba(255, 255, 255, 0.6); 
+}
+.button a {
+  position: relative;
+  width: 100%;
   height: 100%;
+}
+.button img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+  transition: 2.0s ease;
+}
+.button-press img {
+  transition: 0.5s ease;
+  
+  opacity: 0.2;
+}
+.button span {
+  display: inline-flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 10%;
+  transform: translateY(calc(100% + 12px));
+
+  color: #333;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+  font-family: 'Biryani', sans-serif;
+  font-size: 0.7rem;
+  font-weight: bolder;
+  
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  
+  transition: 2.0s ease;
+}
+.button-press span {
+  transition: 0.5s ease;
+  
+  transform: none;
 }
 
 .toad {
-  background: none;
-  transform: scale(0.5);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  box-shadow: none;
-}
-
-.toad:hover {
-  transform: scale(2.0);
-  transition: all 3.0s cubic-bezier(.25,.8,.25,1);
-  box-shadow: none;
-}
-
-.toad:after {
-  border-radius: 5px;
-}
-
-
-
-/**
- * Tooltip Styles
- */
-
-/* Base styles for the element that has a tooltip */
-.tooltip {
   position: relative;
-  cursor: pointer;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  bottom: 0px;
+  
+  transition: 0.5s ease
+}
+.toad a {
+  width: 100%;
+  height: 100%;
+}
+.toad img {
+  width: 100%;
+  height: 100%;
+}
+.toad:hover {
+  transition: 2.0s ease;
+  
+  bottom: 30px;
+  width: 80px;
+  height: 80px;
+  animation-name: toad-hover;
+  animation-duration: 0.15s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
 }
 
-/* Base styles for the entire tooltip */
-.tooltip:before,
-.tooltip:after{
-  position: absolute;
-  visibility: hidden;
-  opacity: 0.0;
-  transition:         
-      opacity 0.3s ease-in-out,
-      visibility 0.3s ease-in-out,
-      transform 0.3s cubic-bezier(0.71, 1.0, 0.77, 1.0);
-  transform:         translateY(-40px); ;
-  top: 100%;
-  left: calc(50% - 6px);
+@keyframes toad-hover {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  100% {
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+  }
 }
 
-/* Show the entire tooltip on hover and focus */
-.tooltip:hover:before,
-.tooltip:hover:after,
-.tooltip:focus:before,
-.tooltip:focus:after{
-  visibility: visible;
-  opacity: 1.0;
-  transform: translateY(0px); 
+/* --- Helper Classes ------------------------------------------------------- */
+
+.preload * {
+  transition: none !important;
 }
 
-
-/* Base styles for the tooltip's content area */
-.tooltip:after {
-  z-index: -1;
-  padding: 8px;
-  width: 96px;
-  background-color: #000;
-  background-color: hsla(0, 0%, 20%, 0.9);
-  color: #fff;
-  content: attr(data-title);
-  font-size: 14px;
-  line-height: 1.2;
-  margin-left: -50px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
