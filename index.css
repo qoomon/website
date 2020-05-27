@@ -8,7 +8,7 @@ body {
   background: linear-gradient(0deg, rgb(224, 224, 224) 0%, rgb(240, 240, 240) 100%);
 }
 
-content {
+main {
   display: block;
   padding: 48px 96px;
 }
