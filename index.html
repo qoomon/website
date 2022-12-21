@@ -8,7 +8,9 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Biryani:wght@800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Biryani:wght@800&display=swap"></noscript>
     <link rel="stylesheet" href="index.css">
-    <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
     <script>
       window.addEventListener("load", function(){
         document.querySelectorAll('.button').forEach(element => {
@@ -34,6 +36,17 @@
     </script>
   </head>
   <body class="preload" onload="document.body.classList.remove('preload');">
+     <script>
+       function onSubmit(token) {
+           console.log("reraptcha token:", token)
+       }
+     </script>
+     <button class="g-recaptcha"
+        data-sitekey="6Ld4I5kjAAAAAMn2JHAZHBFELv2DYMLT2-1VTkF2"
+        data-callback='onSubmit'
+        data-action='submit'>Reveal email</button>
+
+
     <!-- <div style="display: none;" class="g-recaptcha" data-sitekey="6LdmjAoUAAAAAKNIGsW-ZMEZq2n0a1HXEYIhRf98"></div> -->
     <main>
       <div class="button-box">
