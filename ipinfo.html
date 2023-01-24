@@ -5,6 +5,36 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400&amp;lang=en">
+    <style>
+        #info {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 10px;
+            padding: 9px 11px;
+            width: 279.5px;
+            background-color: white;
+            border-radius: 2px;
+            box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px;
+            user-select: text;
+            font-family: Roboto, Arial;
+        }
+        #ip {
+            color: black;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        #org {
+            color: #5b5b5b;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+        #details {
+            text-decoration: none;
+            color: #1a73e8;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body style="margin: 0; overflow: hidden;">
     <iframe id="map"
@@ -12,22 +42,12 @@
         style="width: 100vw; height: 100vh;"/>
     </iframe>
 
-    <div id="info" style="
-        display: none;
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 10px;
-        padding: 9px 11px;
-        width: 279.5px;
-        background-color: white;
-        border-radius: 2px;
-        box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px;
-        user-select: text;
-        font-family: Roboto, Arial;
-    ">
-        <div id="ip"  style="color: black;   font-size: 14px; font-weight: 500;"></div>
-        <div id="org" style="color: #5b5b5b; font-size: 12px; margin-top: 6px;"></div>
+    <div id="info" style="display: none;">
+        <div id="ip"></div>
+        <div id="org"></div>
+        <div style="margin-top: 24px;">
+            <a id="details" href="https://ipinfo.io/" target="_blank" aria-label="View details">View details</a>
+        </div>
     </div>
 
     <script>
@@ -44,15 +64,14 @@
             const orgElement = document.getElementById('org');
             orgElement.innerText = ipInfo.org
 
+            const detailsElement = document.getElementById('details');
+            detailsElement.href = 'https://ipinfo.io/' + ipInfo.ip
+
             const mapIframe = document.getElementById('map');
             const mapQuery = `${ipInfo.latitude},${ipInfo.longitude}`;
 
-            mapIframe.onload = () => {
-              setTimeout(() => {
-                infoElement.style.display = '';
-              }, 500);
-            }
             mapIframe.src = `https://maps.google.com/maps?q=${mapQuery}&z=10&output=embed`;
+            mapIframe.onload = () => { infoElement.style.display = '';}
         })();
     </script>
 </body>
