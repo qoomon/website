@@ -52,7 +52,7 @@
     </div>
 
     <script>
-        (async function () {
+        async function updateInfo() {
             // const ipInfoProvider = 'https://ipinfo.io'
             const ipInfoProviderUrl = 'https://ipapi.co'
             const ipInfo = await fetch(ipInfoProviderUrl + '/json').then(res => res.json());
@@ -74,7 +74,9 @@
 
             mapIframe.src = `https://maps.google.com/maps?q=${mapQuery}&z=10&output=embed`;
             mapIframe.onload = () => { infoElement.style.display = '';}
-        })();
+        };
+        updateInfo()
+        window.addEventListener('online', updateInfo);
     </script>
 </body>
 </html>
