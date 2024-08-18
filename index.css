@@ -2,11 +2,13 @@
   box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
-  margin: 0;
+html {
   background: rgb(234, 234, 234);
   background: linear-gradient(0deg, rgb(224, 224, 224) 0%, rgb(240, 240, 240) 100%);
+}
+
+body {
+  min-height: 100vh;
 }
 
 main {
