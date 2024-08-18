@@ -9,6 +9,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
+  background: rgb(240, 240, 240);
   background: linear-gradient(0deg, rgb(224, 224, 224) 0%, rgb(240, 240, 240) 100%);
 }
 
