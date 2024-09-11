@@ -53,24 +53,26 @@
 
     <script>
         async function updateInfo() {
-            // const ipInfoProvider = 'https://ipinfo.io'
-            const ipInfoProviderUrl = 'https://ipapi.co'
-            const ipInfo = await fetch(ipInfoProviderUrl + '/json').then(res => res.json());
-            console.info('ipInfo:', ipInfo)
+            // const ipInfoProvider = 'https://ipinfo.io';
+            // const ipInfoProviderUrl = 'https://ipapi.co';
+            const ipInfoProviderUrl = 'https://api.ipbase.com/v2/info';
+            const ipInfo = await fetch(ipInfoProviderUrl + '/json').then(res => res.json())
+                .then(body => body.data);
+            console.info('ipInfo:', ipInfo);
 
             const infoElement = document.getElementById('info');
 
             const ipElement = document.getElementById('ip');
-            ipElement.innerText = ipInfo.ip
+            ipElement.innerText = ipInfo.ip;
 
             const orgElement = document.getElementById('org');
-            orgElement.innerText = ipInfo.org
+            orgElement.innerText = ipInfo.connection.organization;
 
             const detailsElement = document.getElementById('details');
-            detailsElement.href = ipInfoProviderUrl + '/' + ipInfo.ip
+            detailsElement.href = ipInfoProviderUrl;
 
             const mapIframe = document.getElementById('map');
-            const mapQuery = `${ipInfo.latitude},${ipInfo.longitude}`;
+            const mapQuery = `${ipInfo.location.latitude},${ipInfo.location.longitude}`;
 
             mapIframe.src = `https://maps.google.com/maps?q=${mapQuery}&z=10&output=embed`;
             mapIframe.onload = () => { infoElement.style.display = '';}
