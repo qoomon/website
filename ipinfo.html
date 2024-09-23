@@ -56,7 +56,7 @@
             // const ipInfoProvider = 'https://ipinfo.io';
             // const ipInfoProviderUrl = 'https://ipapi.co';
             const ipInfoProviderUrl = 'https://api.ipbase.com/v2/info';
-            const ipInfo = await fetch(ipInfoProviderUrl + '/json').then(res => res.json())
+            const ipInfo = await fetch(ipInfoProviderUrl).then(res => res.json())
                 .then(body => body.data);
             console.info('ipInfo:', ipInfo);
 
