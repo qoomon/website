@@ -72,7 +72,7 @@
           });
 
           updateInfo(map, marker);
-          window.addEventListener('online', updateInfo);
+          window.addEventListener('online', () => updateInfo(map, marker));
         };
 
         async function updateInfo(map, marker) {
