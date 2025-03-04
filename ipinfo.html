@@ -17,8 +17,8 @@
         }
         #info {
             position: absolute;
-            bottom: 0;
-            left: 0;
+            top: 0;
+            right: 0;
             margin: 10px;
             padding: 9px 11px;
             width: 279.5px;
@@ -47,7 +47,7 @@
     </style>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <div id="map"></div>
+    <iframe id="map"frameborder="0" scrolling="no"></iframe>
 
     <div id="info">
         <div id="ip">Loading...</div>
@@ -74,45 +74,62 @@
           updateInfo(map, marker);
           window.addEventListener('online', () => updateInfo(map, marker));
         };
+        
+        async function getIpInfo() {
+          const providers = [
+            {
+              url: 'https://api.ipbase.com/v2/info',
+              map: (body) => ({
+                ip: body.data.ip,
+                organization: body.data.connection.organization,
+                position: { 
+                  lat: body.data.location.latitude, 
+                  lng: body.data.location.longitude, },
+              }),
+            },
+            {
+              url: 'https://ipapi.co/json',
+              map: (body) => ({
+                ip: body.ip,
+                organization: body.org,
+                position: { lat: body.latitude, lng: body.longitude },
+              }),
+            },
+            {
+              url: 'https://ipinfo.io/json',
+              map: (body) => {
+                const [lat, lng] = body.loc.split(',').map(parseFloat);
+                return {
+                  ip: body.ip,
+                  organization: body.org,
+                  position: { lat, lng },
+                };
+              },
+            },
+          ];
+        
+          for (const provider of providers) {
+            try {
+              const response = await fetch(provider.url).then((res) => res.json());
+              console.info(`Fetched from ${provider.url}:`, response);
+              return {
+                detailsUrl: provider.url,
+                ...provider.map(response),
+              };
+            } catch (error) {
+              console.info(`Error fetching from ${provider.url}:`, error);
+            }
+          }
+        
+          throw new Error('All ip info providers failed.');
+        }
 
         async function updateInfo(map, marker) {
-            const ipInfo = await fetch('https://api.ipbase.com/v2/info')
-                .then(res => res.json())
-                .then(body => ({
-                  ip: body.ip,
-                  organization: body.organization,
-                  position: {
-                    lat: body.latitude,
-                    lng: body.longitude,
-                  },
-                  detailsUrl: 'https://api.ipbase.com/v2/info',
-                })).catch(() => fetch('https://ipapi.co/json')
-                .then(res => res.json())
-                .then(body => ({
-                  ip: body.ip,
-                  organization: body.org,
-                  position: {
-                    lat: body.latitude,
-                    lng: body.longitude,
-                    },
-                  detailsUrl: 'https://ipapi.co/json',
-                }))).catch(() => fetch('https://ipinfo.io/json')
-                .then(res => res.json())
-                .then(body => ({
-                  ip: body.ip,
-                  organization: body.org,
-                  position: {
-                    lat: body.split(',')[0],
-                    lng: body.split(',')[1],
-                    },
-                  detailsUrl: 'https://ipinfo.io/json',
-                })));
-
+            const ipInfo = await getIpInfo();
             console.info('ipInfo:', ipInfo);
 
-            marker.position = ipInfo.position;
-            map.setZoom(10);
-            map.setCenter(marker.position);
+            const mapIframe = document.getElementById('map');
+            mapIframe.src = `https://maps.google.com/maps?q=${ipInfo.position.lat},${ipInfo.position.lng}&z=10&output=embed`;
 
             const infoElement = document.getElementById('info');
 
