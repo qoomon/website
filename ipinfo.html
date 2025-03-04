@@ -4,12 +4,21 @@
     <title>IP Info</title>
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400&amp;lang=en">
+    <link
+        type="text/css" rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400&amp;lang=en">
     <style>
-        #info {
+        #map {
             position: absolute;
             top: 0;
             right: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+        #info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             margin: 10px;
             padding: 9px 11px;
             width: 279.5px;
@@ -38,27 +47,72 @@
     </style>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <iframe id="map"
-        frameborder="0" scrolling="no"
-        style="width: 100vw; height: 100vh;"/>
-    </iframe>
+    <div id="map"></div>
 
-    <div id="info" style="display: none;">
-        <div id="ip"></div>
+    <div id="info">
+        <div id="ip">Loading...</div>
         <div id="org"></div>
-        <div style="margin-top: 19px;">
+        <div>
             <a id="details" href="#" target="_blank" aria-label="View details">View details</a>
         </div>
     </div>
 
     <script>
-        async function updateInfo() {
-            // const ipInfoProvider = 'https://ipinfo.io';
-            // const ipInfoProviderUrl = 'https://ipapi.co';
-            const ipInfoProviderUrl = 'https://api.ipbase.com/v2/info';
-            const ipInfo = await fetch(ipInfoProviderUrl).then(res => res.json())
-                .then(body => body.data);
+        window.initMap = () => {
+          const map = new google.maps.Map(document.getElementById("map"), {
+            mapId: "ipinfo",
+            zoom: 3,
+            center: { lat: 0, lng: 0 },
+            gestureHandling: "greedy",
+          });
+
+          const marker = new google.maps.marker.AdvancedMarkerElement({
+            map,
+            title: 'Your location',
+          });
+
+          updateInfo(map, marker);
+          window.addEventListener('online', updateInfo);
+        };
+
+        async function updateInfo(map, marker) {
+            const ipInfo = await fetch('https://api.ipbase.com/v2/info')
+                .then(res => res.json())
+                .then(body => ({
+                  ip: body.ip,
+                  organization: body.organization,
+                  position: {
+                    lat: body.latitude,
+                    lng: body.longitude,
+                  },
+                  detailsUrl: 'https://api.ipbase.com/v2/info',
+                })).catch(() => fetch('https://ipapi.co/json')
+                .then(res => res.json())
+                .then(body => ({
+                  ip: body.ip,
+                  organization: body.org,
+                  position: {
+                    lat: body.latitude,
+                    lng: body.longitude,
+                    },
+                  detailsUrl: 'https://ipapi.co/json',
+                }))).catch(() => fetch('https://ipinfo.io/json')
+                .then(res => res.json())
+                .then(body => ({
+                  ip: body.ip,
+                  organization: body.org,
+                  position: {
+                    lat: body.split(',')[0],
+                    lng: body.split(',')[1],
+                    },
+                  detailsUrl: 'https://ipinfo.io/json',
+                })));
+
             console.info('ipInfo:', ipInfo);
+
+            marker.position = ipInfo.position;
+            map.setZoom(10);
+            map.setCenter(marker.position);
 
             const infoElement = document.getElementById('info');
 
@@ -66,19 +120,16 @@
             ipElement.innerText = ipInfo.ip;
 
             const orgElement = document.getElementById('org');
-            orgElement.innerText = ipInfo.connection.organization;
+            orgElement.innerText = ipInfo.organization;
 
             const detailsElement = document.getElementById('details');
-            detailsElement.href = ipInfoProviderUrl;
-
-            const mapIframe = document.getElementById('map');
-            const mapQuery = `${ipInfo.location.latitude},${ipInfo.location.longitude}`;
-
-            mapIframe.src = `https://maps.google.com/maps?q=${mapQuery}&z=10&output=embed`;
-            mapIframe.onload = () => { infoElement.style.display = '';}
+            detailsElement.href = ipInfo.detailsUrl;
         };
-        updateInfo()
-        window.addEventListener('online', updateInfo);
     </script>
+
+    <script
+          src="https://maps.googleapis.com/maps/api/js?v=weekly&libraries=marker&loading=async&callback=initMap&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg"
+          defer
+    ></script>
 </body>
 </html>
