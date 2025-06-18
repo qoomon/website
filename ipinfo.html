@@ -80,17 +80,6 @@
         async function getIpInfo() {
           const providers = [
             {
-              url: 'https://api.geoipapi.com/json',
-              map: (body) => ({
-                ip: body.ip,
-                organization: body.asn.name,
-                location: {
-                  latitude: body.location.latitude,
-                  longitude: body.location.longitude,
-                },
-              }),
-            },  
-            {
               url: 'https://api.ipbase.com/v2/info',
               map: (body) => ({
                 ip: body.data.ip,
@@ -126,6 +115,17 @@
                 };
               },
             },
+            {
+              url: 'https://api.geoipapi.com/json',
+              map: (body) => ({
+                ip: body.ip,
+                organization: body.asn.name,
+                location: {
+                  latitude: body.location.latitude,
+                  longitude: body.location.longitude,
+                },
+              }),
+            },  
           ];
 
           for (const provider of providers) {
