@@ -80,13 +80,25 @@
         async function getIpInfo() {
           const providers = [
             {
+              url: 'https://api.geoipapi.com/json',
+              map: (body) => ({
+                ip: body.ip,
+                organization: body.asn.name,
+                location: {
+                  latitude: body.location.latitude,
+                  longitude: body.location.longitude,
+                },
+              }),
+            },  
+            {
               url: 'https://api.ipbase.com/v2/info',
               map: (body) => ({
                 ip: body.data.ip,
                 organization: body.data.connection.organization,
-                position: {
-                  lat: body.data.location.latitude,
-                  lng: body.data.location.longitude, },
+                location: {
+                  latitude: body.data.location.latitude,
+                  longitude: body.data.location.longitude,
+                },
               }),
             },
             {
@@ -94,17 +106,23 @@
               map: (body) => ({
                 ip: body.ip,
                 organization: body.org,
-                position: { lat: body.latitude, lng: body.longitude },
+                location: { 
+                    latitude: body.latitude, 
+                    longitude: body.longitude,
+                },
               }),
             },
             {
               url: 'https://ipinfo.io/json',
               map: (body) => {
-                const [lat, lng] = body.loc.split(',').map(parseFloat);
+                const [latitude, longitude] = body.loc.split(',').map(parseFloat);
                 return {
                   ip: body.ip,
                   organization: body.org,
-                  position: { lat, lng },
+                  location: { 
+                      latitude, 
+                      longitude,
+                  },
                 };
               },
             },
@@ -131,7 +149,7 @@
             console.info('ipInfo:', ipInfo);
 
             const mapIframe = document.getElementById('map');
-            mapIframe.src = `https://maps.google.com/maps?q=${ipInfo.position.lat},${ipInfo.position.lng}&z=10&output=embed`;
+            mapIframe.src = `https://maps.google.com/maps?q=${ipInfo.location.latitude},${ipInfo.location.longitude}&z=10&output=embed`;
 
             const infoElement = document.getElementById('info');
 
