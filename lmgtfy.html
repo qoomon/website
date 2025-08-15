@@ -50,11 +50,11 @@
           await sleep(500);
           
           await typeInputValue(searchInput, query, 100);
-          await sleep(500);
+          await sleep(600);
           
           const searchButton = document.querySelectorAll('form[action="/search"] center > input')[2]
           const searchButtonRect = searchButton.getBoundingClientRect();
-          const cursorAnimationSearchButtionDuration = 800;
+          const cursorAnimationSearchButtionDuration = 900;
           cursorElement.animate([
               { 
                 top: `calc(${searchButtonRect.y}px + 1em)`,
@@ -78,7 +78,7 @@
             for (const char of value.split("")) {
               inputElement.value += char;
               inputElement.setSelectionRange(inputElement.value.length, inputElement.value.length);
-              await sleep(ms + (Math.random() * ms * 0.2));
+              await sleep(ms + (Math.random() * ms * 0.3));
             }  
           }
           
