@@ -13,7 +13,7 @@
                   'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
               }
           }).then(res=> res.text());
-          document.body.style.cursor = "none !important";
+          document.querySelector('body').style.cursor = "none !important";
           
           const cookieBanner = document.querySelectorAll('body > div')[2];
           cookieBanner.remove();
