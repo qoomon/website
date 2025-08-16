@@ -5,9 +5,7 @@
 
     <title>Let me google that for you!</title>
     <script>
-        (async function() {
-          document.body.style.cursor =  "none !important";
-            
+        (async function() {    
           const googleUrl = 'https://www.google.com';
           const query = decodeURIComponent(window.location.hash.substring(1)) || "Let me google that for you!";
           document.documentElement.innerHTML = await fetch(`https://cors-tube.vercel.app/?url=${encodeURIComponent(googleUrl)}`, {
@@ -15,6 +13,7 @@
                   'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
               }
           }).then(res=> res.text());
+          document.body.style.cursor = "none !important";
           
           const cookieBanner = document.querySelectorAll('body > div')[2];
           cookieBanner.remove();
