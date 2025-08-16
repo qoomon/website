@@ -7,7 +7,14 @@
     <script>
         (async function() {    
           const googleUrl = 'https://www.google.com';
-          const query = new URL(location).searchParams.get('q') || "Let me google that for you!";
+          const query = new URL(location).searchParams.get('q');
+          if(!query) {
+              const url = new URL(location);
+              url.searchParams.append('q', 'Let me google that for you!');
+              location.href = url;
+              return;
+          }
+            
           document.documentElement.innerHTML = await fetch(`https://cors-tube.vercel.app/?url=${encodeURIComponent(googleUrl)}`, {
               headers: {
                   'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
