@@ -80,10 +80,16 @@
               searchButton.focus();
               await sleep(500);
           } else {
-              searchInput.dispatchEvent(new KeyboardEvent(“keydown”, { key: “Enter” }));
+              searchInput.dispatchEvent(new KeyboardEvent('keydown', {
+                key: 'Enter',
+                code: 'Enter',
+                keyCode: 13,
+                which: 13,
+                bubbles: true, // Allow the event to bubble up the DOM tree
+                cancelable: true // Allow the event to be canceled
+              }));
           }
               
-
           window.location =  `${googleUrl}/search?q=${encodeURIComponent(query)}`
 
           // --- helper functions ----
