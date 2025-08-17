@@ -9,10 +9,10 @@
           const googleUrl = 'https://www.google.com';
           const query = new URL(location).searchParams.get('q');
           if(!query) {
-              let query = prompt('Enter Google search query:');
+              let query = prompt('Enter LMGTFY search query:');
               const url = new URL(location);
               url.searchParams.append('q', query);
-              await navigator.clipboard.writeText(query);
+              await navigator.clipboard.writeText(url.href);
               alert("LMGTFY url copied to clipboard!\n" + url);
               location.href = url;
               return;
