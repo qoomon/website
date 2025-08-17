@@ -9,8 +9,11 @@
           const googleUrl = 'https://www.google.com';
           const query = new URL(location).searchParams.get('q');
           if(!query) {
+              let query = prompt('Enter Google search query:');
               const url = new URL(location);
-              url.searchParams.append('q', 'Let me google that for you!');
+              url.searchParams.append('q', query);
+              await navigator.clipboard.writeText(query);
+              alert("LMGTFY url copied to clipboard!\n" + url);
               location.href = url;
               return;
           }
