@@ -61,23 +61,28 @@
           await typeInputValue(searchInput, query, 100);
           await sleep(600);
 
-          const searchButton = document.querySelectorAll('form[action="/search"] center > input')[2]
-          const searchButtonRect = searchButton.getBoundingClientRect();
-          const cursorAnimationSearchButtionDuration = 900;
-          cursorElement.animate([
-              {
-                top: `calc(${searchButtonRect.y}px + 1em)`,
-                left: `calc(${searchButtonRect.x}px + 3em)`,
-                opacity: '100%',
-              },
-            ], {
-              easing: 'ease-in-out',
-              duration: cursorAnimationSearchButtionDuration,
-              fill: 'forwards',
-            });
-          await  sleep(cursorAnimationSearchButtionDuration);
-          searchButton.focus();
-          await sleep(500);
+          const searchButton = document.querySelectorAll('form[action="/search"] center > input')[2];
+          if(searchButton) {
+              const searchButtonRect = searchButton.getBoundingClientRect();
+              const cursorAnimationSearchButtionDuration = 900;
+              cursorElement.animate([
+                  {
+                    top: `calc(${searchButtonRect.y}px + 1em)`,
+                    left: `calc(${searchButtonRect.x}px + 3em)`,
+                    opacity: '100%',
+                  },
+                ], {
+                  easing: 'ease-in-out',
+                  duration: cursorAnimationSearchButtionDuration,
+                  fill: 'forwards',
+                });
+              await  sleep(cursorAnimationSearchButtionDuration);
+              searchButton.focus();
+              await sleep(500);
+          } else {
+              searchInput.dispatchEvent(new KeyboardEvent(“keydown”, { key: “Enter” }));
+          }
+              
 
           window.location =  `${googleUrl}/search?q=${encodeURIComponent(query)}`
 
