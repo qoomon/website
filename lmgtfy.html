@@ -20,9 +20,6 @@
           document.documentElement.innerHTML = await fetch(`https://cors-tube.vercel.app/?url=${encodeURIComponent(googleUrl)}`).then(res=> res.text());
           document.querySelector('body').style.cursor = "none !important";
 
-          const cookieBanner = document.querySelectorAll('body > div')[2];
-          cookieBanner.remove();
-
           const searchInput = document.querySelector('textarea');
           const searchInputRect = searchInput.getBoundingClientRect();
 
