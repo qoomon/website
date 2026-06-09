@@ -10,6 +10,8 @@ body {
   min-height: 100vh;
   margin: 0;
   background: linear-gradient(0deg, rgb(224, 224, 224) 0%, rgb(240, 240, 240) 100%);
+  /* font-family: 'Rampart One', sans-serif; */
+  font-family: 'Rubik 80s Fade', sans-serif;
 }
 
 main {
@@ -39,8 +41,8 @@ main {
 
 .hero h1 {
   margin: 0 0 8px;
-  font-family: 'Biryani', sans-serif;
-  font-size: 2.8rem;
+
+  font-size: 3rem;
   font-weight: 800;
   color: #444;
   text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
@@ -49,7 +51,6 @@ main {
 
 .hero-tagline {
   margin: 0;
-  font-family: sans-serif;
   font-size: 0.95rem;
   color: #888;
   letter-spacing: 0.06em;
@@ -62,10 +63,10 @@ section {
 
 .section-heading {
   margin: 0 0 8px 12px;
-  font-family: sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
+  text-align: center;
   letter-spacing: 0.12em;
   color: rgba(0, 0, 0, 0.35);
 }
@@ -134,9 +135,7 @@ section {
   bottom: -100%;
   color: #333;
   text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
-  font-family: 'Biryani', sans-serif;
   font-size: 0.8rem;
-  font-weight: bolder;
   text-align: center;
   justify-content: center;
   align-items: center;
