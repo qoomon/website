@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>    
-    <title>qoomon</title>
-    <link rel="shortcut icon' href='/favicon.ico"/>
-    <link rel="canonical" href="https://www.qoo.monster"/>
-
-    
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Biryani:wght@800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Biryani:wght@800&display=swap"></noscript>
+
+    <title>qoomon</title>
+    <meta name="description" content="Website of qoomon">
+    <meta name="author" content="Bengt Brodersen">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="canonical" href="https://www.qoo.monster">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="qoomon">
+    <meta property="og:description" content="Website of qoomon">
+    <meta property="og:url" content="https://www.qoo.monster">
+    <meta property="og:image" content="https://www.qoo.monster/tree_field.jpg">
+    <meta property="profile:first_name" content="Bengt">
+    <meta property="profile:last_name" content="Brodersen">
+    <meta property="profile:username" content="qoomon">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@qoomon1">
+    <meta name="twitter:creator" content="@qoomon1">
+    <meta name="twitter:title" content="qoomon – Bengt Brodersen | Developer &amp; Open Source Engineer">
+    <meta name="twitter:description" content="Website of qoomon">
+    <meta name="twitter:image" content="https://www.qoo.monster/tree_field.jpg">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Bengt Brodersen",
+      "alternateName": "qoomon",
+      "url": "https://www.qoo.monster",
+      "image": "https://www.qoo.monster/tree_field.jpg",
+      "sameAs": [
+        "https://github.com/qoomon",
+        "https://www.linkedin.com/in/bengtbrodersen",
+        "https://twitter.com/qoomon1",
+        "https://bsky.app/profile/qoomon.bsky.social",
+        "https://chaos.social/@qoomon",
+        "https://stackoverflow.com/users/5376635/qoomon"
+      ]
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Rampart+One&family=Rubik+80s+Fade&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="index.css">
 
     <script>
@@ -37,213 +82,225 @@
   </head>
   <body class="preload" onload="document.body.classList.remove('preload');">
 	<main>
-	
-		<!-- Contact --------------------------------------------------------------- -->
-		<div class="button-box">
-			<div class="button">
-				<a href="https://bsky.app/profile/qoomon.bsky.social">
-					<img src="./data/icons/bluesky.png">
-					<span>Bluesky</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://chaos.social/@qoomon">
-					<img src="./data/icons/mastodon.png">
-					<span>Mastodon</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://twitter.com/qoomon1">
-					<img src="./data/icons/twitter.png">
-					<span>Twitter</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://www.linkedin.com/in/bengtbrodersen">
-					<img src="./data/icons/linkedin.png">
-					<span>LinkedIn</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://whereby.com/qoomon">
-					<img src="./data/icons/whereby.png">
-					<span>Whereby</span>
-				</a>
-			</div>
-		</div>
-		<div class="button-box">
-			<div class="button">
-				<a href="https://github.com/qoomon">
-					<img src="./data/icons/github.png">
-					<span>GitHub</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://stackoverflow.com/users/5376635/qoomon">
-					<img src="./data/icons/stackoverflow.png">
-					<span>Stack Overflow</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://hub.docker.com/u/qoomon/">
-					<img src="./data/icons/dockerhub.png">
-					<span>DockerHub</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://qoomon.blogspot.com">
-					<img src="./data/icons/blogger.png">
-					<span>Blogspot</span>
-				</a>
-			</div>
-		</div>
-	
-		<!-- Projects ------------------------------------------------------------ -->
-		<div class="button-box">
-			<div class="button">
-				<a href="https://triangle.qoo.monster/">
-					<img src="./data/icons/project-triangle.png">
-					<span>Project Triangle</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://yolo.qoo.monster">
-					<img src="./data/icons/yolo-secret.png">
-					<span>YOLO Secret</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://otp.qoo.monster">
-					<img src="./data/icons/otp-authenticator.png">
-					<span>OTP Authenticator</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://timer.qoo.monster">
-					<img src="./data/icons/time_timer.png">
-					<span>Time Timer</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://creep.qoo.monster">
-					<img src="./data/icons/cash-creep.png">
-					<span>Meeting Cash Creep</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://dice.qoo.monster/">
-					<img src="./data/icons/diceware.png">
-					<span>Diceware</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://ipinfo.qoo.monster/">
-					<img src="./data/icons/ipinfo.png">
-					<span>IP Info Map</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://lmgtfy.qoo.monster/">
-					<img src="./data/icons/lmgtfy.png">
-					<span>Let me google that for you!</span>
-				</a>
-			</div>
 
-			<div class="button">
-				<a href="https://github.com/qoomon/my-zsh">
-					<img src="./data/icons/zsh-config.png">
-					<span>Zsh Config</span>
-				</a>
+		<header class="hero">
+			<h1>qoomon</h1>
+		</header>
+
+		<!-- Connect --------------------------------------------------------------- -->
+		<section aria-label="Connect">
+			<div class="button-box">
+				<div class="button">
+					<a href="https://bsky.app/profile/qoomon.bsky.social" rel="me noopener noreferrer">
+						<img src="./data/icons/bluesky.png" alt="Bluesky" loading="lazy">
+						<span>Bluesky</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://chaos.social/@qoomon" rel="me noopener noreferrer">
+						<img src="./data/icons/mastodon.png" alt="Mastodon" loading="lazy">
+						<span>Mastodon</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://twitter.com/qoomon1" rel="me noopener noreferrer">
+						<img src="./data/icons/twitter.png" alt="Twitter" loading="lazy">
+						<span>Twitter</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://www.linkedin.com/in/bengtbrodersen" rel="me noopener noreferrer">
+						<img src="./data/icons/linkedin.png" alt="LinkedIn" loading="lazy">
+						<span>LinkedIn</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://whereby.com/qoomon" rel="noopener noreferrer">
+						<img src="./data/icons/whereby.png" alt="Whereby" loading="lazy">
+						<span>Whereby</span>
+					</a>
+				</div>
 			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/git-conventional-commits">
-					<img src="./data/icons/conventional-commit-messages.png">
-					<span>Git Conventional Commits</span>
-				</a>
+		</section>
+
+		<!-- Developer Profiles ---------------------------------------------------- -->
+		<section aria-label="Developer Profiles">
+			<div class="button-box">
+				<div class="button">
+					<a href="https://github.com/qoomon" rel="me noopener noreferrer">
+						<img src="./data/icons/github.png" alt="GitHub" loading="lazy">
+						<span>GitHub</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://stackoverflow.com/users/5376635/qoomon" rel="me noopener noreferrer">
+						<img src="./data/icons/stackoverflow.png" alt="Stack Overflow" loading="lazy">
+						<span>Stack Overflow</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://hub.docker.com/u/qoomon/" rel="noopener noreferrer">
+						<img src="./data/icons/dockerhub.png" alt="DockerHub" loading="lazy">
+						<span>DockerHub</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://qoomon.blogspot.com" rel="noopener noreferrer">
+						<img src="./data/icons/blogger.png" alt="Blogspot" loading="lazy">
+						<span>Blogspot</span>
+					</a>
+				</div>
 			</div>
-			<div class="button">
-				<a href="https://docs.google.com/presentation/d/1nsLF8hM2G5E186vObiP0v0SeJIUxzhmKgzPkEsvaK9g">
-					<img src="./data/icons/scrum-slides.png">
-					<span>Scrum Slides</span>
-				</a>
+		</section>
+
+		<!-- Projects ------------------------------------------------------------ -->
+		<section aria-label="Projects">
+			<h2 class="section-heading">Projects</h2>
+			<div class="button-box">
+				<div class="button">
+					<a href="https://triangle.qoo.monster/" rel="noopener noreferrer">
+						<img src="./data/icons/project-triangle.png" alt="Project Triangle" loading="lazy">
+						<span>Project Triangle</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://yolo.qoo.monster" rel="noopener noreferrer">
+						<img src="./data/icons/yolo-secret.png" alt="YOLO Secret" loading="lazy">
+						<span>YOLO Secret</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://otp.qoo.monster" rel="noopener noreferrer">
+						<img src="./data/icons/otp-authenticator.png" alt="OTP Authenticator" loading="lazy">
+						<span>OTP Authenticator</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://timer.qoo.monster" rel="noopener noreferrer">
+						<img src="./data/icons/time_timer.png" alt="Time Timer" loading="lazy">
+						<span>Time Timer</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://creep.qoo.monster" rel="noopener noreferrer">
+						<img src="./data/icons/cash-creep.png" alt="Meeting Cash Creep" loading="lazy">
+						<span>Meeting Cash Creep</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://dice.qoo.monster/" rel="noopener noreferrer">
+						<img src="./data/icons/diceware.png" alt="Diceware" loading="lazy">
+						<span>Diceware</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://ipinfo.qoo.monster/" rel="noopener noreferrer">
+						<img src="./data/icons/ipinfo.png" alt="IP Info Map" loading="lazy">
+						<span>IP Info Map</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://lmgtfy.qoo.monster/" rel="noopener noreferrer">
+						<img src="./data/icons/lmgtfy.png" alt="Let me google that for you!" loading="lazy">
+						<span>Let me google that for you!</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/my-zsh" rel="noopener noreferrer">
+						<img src="./data/icons/zsh-config.png" alt="Zsh Config" loading="lazy">
+						<span>Zsh Config</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/git-conventional-commits" rel="noopener noreferrer">
+						<img src="./data/icons/conventional-commit-messages.png" alt="Git Conventional Commits" loading="lazy">
+						<span>Git Conventional Commits</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://docs.google.com/presentation/d/1nsLF8hM2G5E186vObiP0v0SeJIUxzhmKgzPkEsvaK9g" rel="noopener noreferrer">
+						<img src="./data/icons/scrum-slides.png" alt="Scrum Slides" loading="lazy">
+						<span>Scrum Slides</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/gmail-rss-feed" rel="noopener noreferrer">
+						<img src="./data/icons/gmail-rss-feed.png" alt="Gmail RSS Feeds" loading="lazy">
+						<span>Gmail RSS Feeds</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/GoogleContactsEventsToGoogleCalendarSync" rel="noopener noreferrer">
+						<img src="./data/icons/contacts-events-to-calendar-sync.png" alt="Google Contacts Events To Calendar Sync" loading="lazy">
+						<span>Google Contacts Events To Calendar Sync</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/starlines" rel="noopener noreferrer">
+						<img src="./data/icons/starlines.png" alt="GitHub Starlines" loading="lazy">
+						<span>GitHub Starlines</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/banking-swift-messages-java" rel="noopener noreferrer">
+						<img src="./data/icons/banking-swift-messages.png" alt="Banking SWIFT Messages" loading="lazy">
+						<span>Banking SWIFT Messages</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/maven-git-versioning-extension" rel="noopener noreferrer">
+						<img src="./data/icons/maven-git-versioning.png" alt="Maven/Gradle Git Versioning" loading="lazy">
+						<span>Maven/Gradle Git Versioning</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/docker-host" rel="noopener noreferrer">
+						<img src="./data/icons/docker-host.png" alt="Docker Host" loading="lazy">
+						<span>Docker Host</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/aws-ssm-ec2-proxy-command" rel="noopener noreferrer">
+						<img src="./data/icons/aws_ssm_ssh_proxy_command.png" alt="AWS SSM - SSH Proxy Command" loading="lazy">
+						<span>AWS SSM - SSH Proxy Command</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://qoomon.github.io/aws-s3-bucket-browser/index.html?bucket=https://s3.amazonaws.com/spacenet-dataset#spacenet/" rel="noopener noreferrer">
+						<img src="./data/icons/aws_s3_browser.png" alt="AWS S3 Browser" loading="lazy">
+						<span>AWS S3 Browser</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/aws-configure" rel="noopener noreferrer">
+						<img src="./data/icons/aws_profile.png" alt="AWS Configure CLI" loading="lazy">
+						<span>AWS Configure CLI</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/aws-session" rel="noopener noreferrer">
+						<img src="./data/icons/aws_session.png" alt="AWS Session CLI" loading="lazy">
+						<span>AWS Session CLI</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://gist.github.com/qoomon/17ac72a2c90bb85b89c883ce7dac5724" rel="noopener noreferrer">
+						<img src="./data/icons/hibp.png" alt="Have I been pwned!" loading="lazy">
+						<span>Have I been pwned!</span>
+					</a>
+				</div>
+				<div class="button">
+					<a href="https://github.com/qoomon/Jira-Issue-Card-Printer" rel="noopener noreferrer">
+						<img src="./data/icons/issue-printer.png" alt="Issue Card Printer" loading="lazy">
+						<span>Issue Card Printer</span>
+					</a>
+				</div>
 			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/gmail-rss-feed">
-					<img src="./data/icons/gmail-rss-feed.png">
-					<span>Gmail RSS Feeds</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/GoogleContactsEventsToGoogleCalendarSync">
-					<img src="./data/icons/contacts-events-to-calendar-sync.png">
-					<span>Google Contacts Events To Calendar Sync</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/starlines">
-					<img src="./data/icons/starlines.png">
-					<span>GitHub Starlines</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/banking-swift-messages-java">
-					<img src="./data/icons/banking-swift-messages.png">
-					<span>Banking SWIFT Messages</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/maven-git-versioning-extension">
-					<img src="./data/icons/maven-git-versioning.png">
-					<span>Maven/Gradle Git Versioning</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/docker-host">
-					<img src="./data/icons/docker-host.png">
-					<span>Docker Host</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/aws-ssm-ec2-proxy-command">
-					<img src="./data/icons/aws_ssm_ssh_proxy_command.png">
-					<span>AWS SSM - SSH Proxy Command</span>
-				</a>
-			</div>
-			<div class="button">
-				<a
-					href="https://qoomon.github.io/aws-s3-bucket-browser/index.html?bucket=https://s3.amazonaws.com/spacenet-dataset#spacenet/">
-					<img src="./data/icons/aws_s3_browser.png">
-					<span>AWS S3 Browser</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/aws-configure">
-					<img src="./data/icons/aws_profile.png">
-					<span>AWS Configure CLI</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/aws-session">
-					<img src="./data/icons/aws_session.png">
-					<span>AWS Session CLI</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://gist.github.com/qoomon/17ac72a2c90bb85b89c883ce7dac5724">
-					<img src="./data/icons/hibp.png">
-					<span>Have I been pwned!</span>
-				</a>
-			</div>
-			<div class="button">
-				<a href="https://github.com/qoomon/Jira-Issue-Card-Printer">
-					<img src="./data/icons/issue-printer.png">
-					<span>Issue Card Printer</span>
-				</a>
-			</div>
-		</div>
+		</section>
+
 		<div class="toad">
 			<a href="/ponies.html">
-				<img src="./data/icons/blinking_toad.gif">
+				<img src="./data/icons/blinking_toad.gif" alt="Blinking toad easter egg" loading="eager">
 			</a>
 		</div>
 	</main>
