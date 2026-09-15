@@ -200,7 +200,6 @@ footer {
   position: fixed;
   width: 100vw;
   bottom: -30px;
-  z-index: 1;
   
   transition: 2s ease;
   pointer-events: none;
