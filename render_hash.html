@@ -2,12 +2,12 @@
 <script>
   const hash = location.hash.slice(1);
   if (hash) {
-    let content = 
+    let content = decodeURIComponent(hash);
     try {
-      content = new TextDecoder().decode(Uint8Array.from(atob(decodeURIComponent(hash)), c => c.charCodeAt(0)));
-      console.debug('base64 encoded content')
+      content = new TextDecoder().decode(Uint8Array.from(atob(content), c => c.charCodeAt(0)));
+      console.debug('base64 encoded content');
     } catch (e) {
-      console.debug('raw content')
+      console.debug('raw content');
     }
     document.open();
     document.write(content);
