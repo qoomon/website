@@ -2,9 +2,15 @@
 <script>
   const hash = location.hash.slice(1);
   if (hash) {
-    const bytes = Uint8Array.from(atob(decodeURIComponent(hash)), c => c.charCodeAt(0));
+    let content = 
+    try {
+      content = new TextDecoder().decode(Uint8Array.from(atob(decodeURIComponent(hash)), c => c.charCodeAt(0)));
+      console.debug('base64 encoded content')
+    } catch (e) {
+      console.debug('raw content')
+    }
     document.open();
-    document.write(new TextDecoder().decode(bytes));
+    document.write(content);
     document.close();
   }
 </script>
